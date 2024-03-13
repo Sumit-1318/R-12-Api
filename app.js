@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 
 
-
+//db connection
+require("./models/dbconfig").dbconnection();
 
 
 
