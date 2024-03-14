@@ -7,6 +7,24 @@ const app = express();
 require("./models/dbconfig").dbconnection();
 
 
+//routers
+const userRouter = require("./routes/userRoute");
+
+
+//logger
+const logger = require("morgan");
+app.use(logger("tiny"));
+
+
+//body parser
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+
+
+app.use("/api/user",userRouter);
+
 
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`)
